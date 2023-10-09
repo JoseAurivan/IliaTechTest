@@ -1,6 +1,8 @@
+'use client'
 import CustomerList from '@/components/CustomerList';
 import style from './Order.module.scss'
 import { useState } from "react"
+import CloseNight from '@/components/CloseNight';
 
 export default function Order()
 {
@@ -12,24 +14,21 @@ export default function Order()
         const customer = {customerName,customerEmail};
         //dispatch to Redux
     }
-    function finishAllCustomers()
-    {
 
-    }
 
     return(
-        <div>
-            <form>
-                <label>Name:</label>
-                <input type="text" id="name" ></input>
-                <label>Email:</label>
-                <input type="email"></input>
-                <button type="submit" onClick={saveCustomer}></button>
-            </form>
-            <CustomerList/>
+        <>
             <div>
-                <button onClick={finishAllCustomers}>Close night</button>
+                <form>
+                    <label>Name:</label>
+                    <input type="text" id="name" ></input>
+                    <label>Email:</label>
+                    <input type="email"></input>
+                    <button type="submit" onClick={saveCustomer}></button>
+                </form>
+                <CustomerList/>
+                <CloseNight/>
             </div>
-        </div>
+        </>
     )
 }

@@ -1,5 +1,5 @@
 import Navbar from '@/components/Navbar'
-import style from './common/modules/Page.module.scss'
+import style from './Home.module.scss'
 export default function Home() {
   return (
     <div className={style.text}>
