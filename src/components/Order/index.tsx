@@ -1,18 +1,15 @@
 "use client"
 import { useSelector, useDispatch} from "react-redux";
-import React, { useEffect } from 'react'
-import { RootState } from "@/store";
+import React from 'react'
 import {selectOrderbyCustomerID} from '@/store'
-import { DeleteOrder, DeleteOrdersFromClient } from "@/store/reducers/order";
+import { DeleteOrdersFromClient } from "@/store/reducers/order";
+import OrderListItem from "./OrderListItem";
 
 export default function OrderList({id}:{id:string}){
 
     const orders = useSelector(selectOrderbyCustomerID(id));
     const dispatch = useDispatch();
 
-    function SuspendOrder(orderId:string){
-        dispatch(DeleteOrder(orderId));
-    }
     function SuspendAllOrdersOfClient(){
         dispatch(DeleteOrdersFromClient(id));
     }
@@ -21,11 +18,8 @@ export default function OrderList({id}:{id:string}){
         <div>
             <button disabled={orders.length === 0} onClick={()=>SuspendAllOrdersOfClient()}>Close all orders of this client</button>
            <ul>
-            {orders?.map(order=> (
-                <>
-                    <input type="text" key={order.orderId} value={order.description}/>
-                    <button onClick={()=>SuspendOrder(order.orderId)}>Suspend Order</button>
-                </>
+            {orders && orders.map(order=> (
+                <OrderListItem key={order.orderId} params={order}/>
             ))}
            </ul>
         </div>

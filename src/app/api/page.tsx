@@ -1,5 +1,6 @@
 "use client"
 import { Todo } from "@/types/todo"
+import { todo } from "node:test";
 import { useEffect, useState } from "react"
 
 export default function Api(){
@@ -73,7 +74,7 @@ export default function Api(){
                 
                     RESULTADO:
                     <ul>
-                        
+                        {todos.map(todo=>(<li key={todo.id}> {todo.title} / Completed: <input type="radio" checked={todo.completed} readOnly={true}/></li>))}
                     </ul>
                              
                 </div>

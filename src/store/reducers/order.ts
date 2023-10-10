@@ -28,13 +28,17 @@ const orderSlice = createSlice({
             for(var i = orders.length - 1; i>=0;i--){
                 state.splice(i,1);
             }
+        },
+        ChangeOrder:(state,{payload})=>{
+            console.log(payload)
+            const index = state.findIndex(order=>order.customerId===payload.customerId)
+            Object.assign(state[index],{description: payload.description})
         }
-        //change order
     }
 })
 
 
 
 
-export const {AddOrder,CleanOrders,DeleteOrder,DeleteOrdersFromClient} = orderSlice.actions;
+export const {AddOrder,CleanOrders,DeleteOrder,DeleteOrdersFromClient,ChangeOrder} = orderSlice.actions;
 export default orderSlice.reducer;
