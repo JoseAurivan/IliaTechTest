@@ -20,12 +20,15 @@ const customersSlice = createSlice({
                 email: payload.email
             }]
         },
-        //Change customer
+        ChangeCustomer: (state, {payload})=>{
+            const index = state.findIndex(customer=>customer.customerId===payload.customerId)
+            Object.assign(state[index],{name: payload.name, email: payload.email})
+        },
         //delete customer
     }
 
 
 })
 
-export const {AddCustomer,CleanCustomers} = customersSlice.actions;
+export const {AddCustomer,CleanCustomers,ChangeCustomer} = customersSlice.actions;
 export default customersSlice.reducer

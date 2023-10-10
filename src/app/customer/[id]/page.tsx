@@ -7,6 +7,9 @@ import { getCurrentUser } from '@/store'
 import { Order } from '@/types/order';
 import { v4 as uuid } from 'uuid';
 import { AddOrder } from '@/store/reducers/order';
+import {ChangeCustomer} from '@/store/reducers/customer'
+import { Customer } from '@/types/customer';
+import customer from '@/store/reducers/customer';
 
 export default function Customer({params}:{params:{id:string}}){
 
@@ -25,26 +28,33 @@ export default function Customer({params}:{params:{id:string}}){
         if(input.current) input.current.focus();
     }
 
-    function ChangeCustomer(event : React.FormEvent<HTMLFormElement>){
-        event.preventDefault();
-        //dispatch de alterar
-        
-    }
+
 
     const customer = useSelector(getCurrentUser(params.id));
     const [customerName, setCustomerName] = useState(customer?.name);
     const [customerEmail, setCustomerEmail] = useState(customer?.email);
+
+    function sendChangeCustomer(event : React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+        if(customerName && customerEmail){
+            const customer : Customer = {name: customerName, email: customerEmail, customerId: params.id}
+            dispatch(ChangeCustomer(customer));
+        }
+        
+        
+        
+    }
 
     return(
         <>
         <Link href='/customer'><button>Voltar</button></Link> 
         <div>
 
-            <form >
+            <form onSubmit={sendChangeCustomer}>
                 <label>CUSTOMER:</label>
                 <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
                 <label>EMAIL:</label>
-                <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
+                <input type="text" value={customerEmail} onChange={(event)=>{setCustomerEmail(event.target.value)}}/>
                 <button type='submit'>Change Customer</button>
             </form>
 
