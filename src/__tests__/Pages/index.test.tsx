@@ -1,13 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, queryByAttribute } from '@testing-library/react'
 import Home from '../../app/page'
 import '@testing-library/jest-dom'
  
-describe('Home', () => {
+describe('At Home page ', () => {
   it('check if it is rendering correctly', () => {
-    render(<Home />);
+
+    const getById = queryByAttribute.bind(null, 'id');
+    const dom = render(<Home />);
  
-    const heading = screen.getByRole('heading');
- 
-    expect(heading).toHaveTextContent("Hello world !")
+    const cardTitle = getById(dom.container, 'card-title');
+    expect(cardTitle).toBeInTheDocument();
   });
 })
