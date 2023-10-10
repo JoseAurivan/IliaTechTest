@@ -11,7 +11,12 @@ export default function OrderList({id}:{id:string}){
         <div>
             <button disabled={orders.length === 0}>Close all orders of this client</button>
            <ul>
-            {orders?.map(order=> (<li key={order.orderId}>{order.description}</li>))}
+            {orders?.map(order=> (
+                <>
+                    <input type="text" key={order.orderId} value={order.description}/>
+                    <button>Suspend Order</button>
+                </>
+            ))}
            </ul>
         </div>
     )
