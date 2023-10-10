@@ -1,10 +1,9 @@
-"use client"
 import Navbar from '@/components/Navbar'
 import style from './Home.module.scss'
 export default function Home() {
   return (
-    <div className={style.text}>
-      Hello world !
+    <div id="main" className={style.text}>
+      <h1>Hello world !</h1>
     </div>
   )
 }
