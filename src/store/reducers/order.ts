@@ -19,7 +19,16 @@ const orderSlice = createSlice({
                orderId: payload.orderId
             }]
         },
-        //delete order from customer
+        DeleteOrder:(state,{payload}) => {
+            const index = state.findIndex(order=>order.orderId===payload);
+            state.splice(index,1);
+        },
+        DeleteOrdersFromClient:(state,{payload})=>{
+            const orders = state.filter(order=>order.customerId===payload);
+            for(var i = orders.length - 1; i>=0;i--){
+                state.splice(i,1);
+            }
+        }
         //change order
     }
 })
@@ -27,5 +36,5 @@ const orderSlice = createSlice({
 
 
 
-export const {AddOrder,CleanOrders} = orderSlice.actions;
+export const {AddOrder,CleanOrders,DeleteOrder,DeleteOrdersFromClient} = orderSlice.actions;
 export default orderSlice.reducer;
