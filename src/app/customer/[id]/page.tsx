@@ -2,18 +2,22 @@
 import Link from '@/components/Link'
 import OrderList from '@/components/Order';
 import React, { useRef, useState } from 'react'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUser } from '@/store'
+import { Order } from '@/types/order';
+import { v4 as uuid } from 'uuid';
+import { AddOrder } from '@/store/reducers/order';
 
 export default function Customer({params}:{params:{id:string}}){
     const [description, setDescription] = useState('');
     const input = useRef<HTMLInputElement>(null);
+    const dispatch = useDispatch();
 
 
     function SendOrder(event : React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        console.log("ENVIOU PRO REDUX")
-        console.log(description);
+        const order : Order = {description: description, orderId: uuid(), customerId:params.id}
+        dispatch(AddOrder(order));
         setDescription('');
         if(input.current) input.current.focus();
     }
@@ -26,7 +30,7 @@ export default function Customer({params}:{params:{id:string}}){
             CUSTOMER: {customer?.name} <Link href='/customer'><button>Voltar</button></Link>
             <form onSubmit={SendOrder}>
                 <label>Description:</label>
-                <input ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}></input>
+                <input required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}></input>
                 <button type="submit">Send Order</button>
             </form>
 

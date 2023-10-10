@@ -57,13 +57,13 @@ export default function Api(){
             <div>
                 <form onSubmit={Filter}>
                     <label>Id:</label>
-                    <input type="number" min="0" max="100" value={filter} onChange={event => setFilter(event.target.value)} id="filter"/> 
+                    <input placeholder="numbers from 0 to 100" type="number" min="0" max="100" value={filter} onChange={event => setFilter(event.target.value)} id="filter"/> 
                     <label>UserId:</label>
-                    <input type="number" min="0" max="10" value={userIdFilter} onChange={event => setUserIdFilter(event.target.value)} id="filter"/> 
+                    <input placeholder="numbers from 0 to 10 "type="number" min="0" max="10" value={userIdFilter} onChange={event => setUserIdFilter(event.target.value)} id="filter"/> 
                     <label>Completed:</label>
                     <input type="radio" onClick={e => setIsChecked(!isChecked)} checked={isChecked} value="true" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/> 
                     <label>Not Completed:</label>
-                    <input type="radio" onClick={e => setIsCheckedNotCompleted(!isCheckedNotCompleted)} checked={isCheckedNotCompleted} value="false" name="notcompleted" onChange={event => setCompleted(event.target.value)} id="filter"/>
+                    <input type="radio" onClick={e => setIsCheckedNotCompleted(!isCheckedNotCompleted)} checked={isCheckedNotCompleted} value="false" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/>
                     <button type="submit" >Search</button>
                 </form>
             </div>

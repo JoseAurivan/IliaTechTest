@@ -1,4 +1,5 @@
 import { CleanCustomers } from "@/store/reducers/customer"
+import {CleanOrders} from "@/store/reducers/order"
 import { useDispatch } from "react-redux"
 
 
@@ -10,7 +11,10 @@ export default function CloseNight(){
 
     return(
         <div>
-            <button onClick={()=>dispatch(CleanCustomers())}>Close night</button>
+            <button onClick={()=>{
+                dispatch(CleanOrders());
+                dispatch(CleanCustomers()); 
+                }}>Close night</button>
         </div> 
     )
 }

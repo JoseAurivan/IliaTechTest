@@ -12,6 +12,7 @@ const orderSlice = createSlice({
             return initialState
         },
         AddOrder:(state,{payload})=>{
+            console.log([...state,payload]);
             return [...state,{
                description: payload.description,
                customerId: payload.customerId,
