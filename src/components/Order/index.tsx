@@ -9,7 +9,7 @@ export default function OrderList({id}:{id:string}){
 
     return(
         <div>
-            <button disabled={orders.length === 0}>Close all orders</button>
+            <button disabled={orders.length === 0}>Close all orders of this client</button>
            <ul>
             {orders?.map(order=> (<li key={order.orderId}>{order.description}</li>))}
            </ul>

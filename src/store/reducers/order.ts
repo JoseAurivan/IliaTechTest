@@ -18,7 +18,9 @@ const orderSlice = createSlice({
                customerId: payload.customerId,
                orderId: payload.orderId
             }]
-        }
+        },
+        //delete order from customer
+        //change order
     }
 })
 

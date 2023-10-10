@@ -9,6 +9,9 @@ import { v4 as uuid } from 'uuid';
 import { AddOrder } from '@/store/reducers/order';
 
 export default function Customer({params}:{params:{id:string}}){
+
+    
+
     const [description, setDescription] = useState('');
     const input = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
@@ -22,15 +25,32 @@ export default function Customer({params}:{params:{id:string}}){
         if(input.current) input.current.focus();
     }
 
+    function ChangeCustomer(event : React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+        //dispatch de alterar
+        
+    }
+
     const customer = useSelector(getCurrentUser(params.id));
+    const [customerName, setCustomerName] = useState(customer?.name);
+    const [customerEmail, setCustomerEmail] = useState(customer?.email);
 
     return(
-        <> 
+        <>
+        <Link href='/customer'><button>Voltar</button></Link> 
         <div>
-            CUSTOMER: {customer?.name} <Link href='/customer'><button>Voltar</button></Link>
+
+            <form >
+                <label>CUSTOMER:</label>
+                <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
+                <label>EMAIL:</label>
+                <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
+                <button type='submit'>Change Customer</button>
+            </form>
+
             <form onSubmit={SendOrder}>
                 <label>Description:</label>
-                <input required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}></input>
+                <input required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
                 <button type="submit">Send Order</button>
             </form>
 

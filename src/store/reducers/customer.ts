@@ -20,6 +20,8 @@ const customersSlice = createSlice({
                 email: payload.email
             }]
         },
+        //Change customer
+        //delete customer
     }
 
 
