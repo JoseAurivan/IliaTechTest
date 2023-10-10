@@ -19,7 +19,7 @@ export default function CustomerList()
                     <div key={customer.customerId } >
                         <li key={customer.customerId}>Nome:{customer.name}</li>
                         <li  key={customer.customerId}>Email:{customer.email}</li>
-                        <Link href="/"><button>See orders</button></Link>
+                        <Link href={"/customer/"+customer.customerId}><button>See orders</button></Link>
                     </div>
                 ))}               
             </ul>

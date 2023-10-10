@@ -19,7 +19,7 @@ const customersSlice = createSlice({
                 customerId: payload.customerId,
                 email: payload.email
             }]
-        }
+        },
     }
 
 

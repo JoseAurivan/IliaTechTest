@@ -1,7 +1,7 @@
 
 
 export type Order = {
-    descricao: string;
+    description: string;
     orderId: string;
     customerId: string;
 }
