@@ -7,9 +7,8 @@ import { getCurrentUser } from '@/store'
 import { Order } from '@/types/order';
 import { v4 as uuid } from 'uuid';
 import { AddOrder } from '@/store/reducers/order';
-import {ChangeCustomer} from '@/store/reducers/customer'
 import { Customer } from '@/types/customer';
-import customer from '@/store/reducers/customer';
+import CustomerChangeForm from '@/components/CustomerList/CustomerChangeForm';
 
 export default function Customer({params}:{params:{id:string}}){
 
@@ -30,44 +29,26 @@ export default function Customer({params}:{params:{id:string}}){
 
 
 
-    const customer = useSelector(getCurrentUser(params.id));
-    const [customerName, setCustomerName] = useState(customer?.name);
-    const [customerEmail, setCustomerEmail] = useState(customer?.email);
+    const customer:Customer|undefined = useSelector(getCurrentUser(params.id));
 
-    function sendChangeCustomer(event : React.FormEvent<HTMLFormElement>){
-        event.preventDefault();
-        if(customerName && customerEmail){
-            const customer : Customer = {name: customerName, email: customerEmail, customerId: params.id}
-            dispatch(ChangeCustomer(customer));
-        }
-        
-        
-        
-    }
 
     return(
         <>
-        <Link href='/customer'><button>Voltar</button></Link> 
-        <div>
+           <Link href='/customer'><button>Voltar</button></Link> 
+            
 
-            <form onSubmit={sendChangeCustomer}>
-                <label>CUSTOMER:</label>
-                <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
-                <label>EMAIL:</label>
-                <input type="text" value={customerEmail} onChange={(event)=>{setCustomerEmail(event.target.value)}}/>
-                <button type='submit'>Change Customer</button>
-            </form>
+           <CustomerChangeForm params={customer}/>
 
-            <form onSubmit={SendOrder}>
+           <form onSubmit={SendOrder}>
                 <label>Description:</label>
                 <input required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
                 <button type="submit">Send Order</button>
             </form>
 
-        </div>
-        <OrderList key={params.id} id={params.id}/>
-
        
+          <OrderList key={params.id} id={params.id}/>
+
+            
         </>
 
     )
