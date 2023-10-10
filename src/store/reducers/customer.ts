@@ -1,6 +1,8 @@
+import {Customer} from '../../types/customer'
+
 
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = []
+const initialState : Customer[] = [] 
 
 
 const customersSlice = createSlice({

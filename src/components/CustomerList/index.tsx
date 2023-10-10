@@ -1,13 +1,14 @@
 'use client'
 import { useSelector } from "react-redux";
 import React, { useEffect } from 'react'
-import Link from "../Link";
+import Link from "../Link/index";
+import { RootState } from "@/store";
 
 
 export default function CustomerList()
 {
    
-    const customers = useSelector(state=> (state.customers));
+    const customers = useSelector((state : RootState)=> (state.customers));
 
     
     return(
@@ -15,9 +16,9 @@ export default function CustomerList()
         <aside>
             <ul>
                 {customers?.map(customer=>(
-                    <div key={customer.id } >
-                        <li key={customer.id}>Nome:{customer.name}</li>
-                        <li  key={customer.id}>Email:{customer.email}</li>
+                    <div key={customer.customerId } >
+                        <li key={customer.customerId}>Nome:{customer.name}</li>
+                        <li  key={customer.customerId}>Email:{customer.email}</li>
                         <Link href="/"><button>See orders</button></Link>
                     </div>
                 ))}               
