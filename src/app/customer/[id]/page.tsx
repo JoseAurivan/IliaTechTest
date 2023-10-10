@@ -8,7 +8,7 @@ import { Order } from '@/types/order';
 import { v4 as uuid } from 'uuid';
 import { AddOrder } from '@/store/reducers/order';
 import { Customer } from '@/types/customer';
-import CustomerChangeForm from '@/components/CustomerList/CustomerChangeForm';
+import CustomerChangeForm from '@/components/CustomerChangeForm';
 
 export default function Customer({params}:{params:{id:string}}){
 
