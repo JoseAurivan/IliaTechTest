@@ -1,11 +1,13 @@
 import customersSlice from './reducers/customer';
 import orderSlice from './reducers/order';
+import searchSlice from './reducers/search';
 import { configureStore, createSelector } from "@reduxjs/toolkit";
 
 const store = configureStore({
     reducer: {
       customers: customersSlice,
-      orders: orderSlice
+      orders: orderSlice,
+      search: searchSlice,
     }
   });
 
