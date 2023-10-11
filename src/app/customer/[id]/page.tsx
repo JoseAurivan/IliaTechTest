@@ -1,5 +1,7 @@
 "use client"
-import Link from '@/components/Link'
+
+ 
+import { useRouter } from 'next/navigation'
 import OrderList from '@/components/Order';
 import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
@@ -12,7 +14,7 @@ import CustomerChangeForm from '@/components/CustomerChangeForm';
 
 export default function Customer({params}:{params:{id:string}}){
 
-    
+    const router = useRouter()
 
     const [description, setDescription] = useState('');
     const input = useRef<HTMLInputElement>(null);
@@ -35,7 +37,7 @@ export default function Customer({params}:{params:{id:string}}){
     return(
         <div className='container'>
 
-            <button type="button" className="btn btn-outline-warning mt-2 mb-2">Back</button>
+            <button type="button" onClick={()=>router.push('/customer')} className="btn btn-outline-warning mt-2 mb-2">Back</button>
             
             
 
