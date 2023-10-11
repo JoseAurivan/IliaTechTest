@@ -34,6 +34,7 @@ export default function Order()
     return(
         <>
             <div>
+                
                 <form onSubmit={SaveCustomer}>
                     <label>Name:</label>
                     <input value={customerName} onChange={evento=>{setCustomerName(evento.target.value)}}  type="text" id="name" ></input>
@@ -42,8 +43,9 @@ export default function Order()
                     <button type="submit">Save Customer</button>
                     
                 </form>
-                <CustomerList/>
                 <CloseNight/>
+                <CustomerList/>
+                
             </div>
         </>
     )
