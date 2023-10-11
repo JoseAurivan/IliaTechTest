@@ -9,8 +9,9 @@ import CustomerListItem from "./CustomerListItem";
 
 
 export default function CustomerList()
-{  
-    const customers = useSelector((state : RootState)=> (state.customers));
+{ 
+    const busca = useSelector((state:RootState)=>(state.search)); 
+    let customers = useSelector((state : RootState)=> (state.customers));
     return(
         
         <aside>
