@@ -2,24 +2,30 @@
 import { useSelector, useDispatch} from "react-redux";
 import React, { useEffect } from 'react'
 
-import { RootState } from "@/store";
+import { RootState, filterUserBySearch } from "@/store";
 import { DeleteCustomer } from "@/store/reducers/customer";
 
 import CustomerListItem from "./CustomerListItem";
+import Search from "../SearchBar";
+import { Customer } from "@/types/customer";
 
 
 export default function CustomerList()
 { 
-    const busca = useSelector((state:RootState)=>(state.search)); 
-    let customers = useSelector((state : RootState)=> (state.customers));
+    const regEx = new RegExp(useSelector((state: RootState)=>state.search),'i');
+    const customers:Customer[] | undefined  = useSelector(filterUserBySearch(new RegExp(regEx)));
+
+
     return(
-        
-        <aside>
-            <ul>
-                {customers?.map(customer=>(
-                    <CustomerListItem params={customer} key={customer.customerId} />
-                ))}               
-            </ul>
-        </aside>
+        <>
+            <Search/>
+            <aside>
+                <ul>
+                    {customers?.map(customer=>(
+                        <CustomerListItem params={customer} key={customer.customerId} />
+                    ))}               
+                </ul>
+            </aside>
+        </>
     )
 }
