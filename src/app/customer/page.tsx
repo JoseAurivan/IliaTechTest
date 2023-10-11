@@ -32,7 +32,7 @@ export default function Order()
 
 
     return(
-        <>
+        <div className='container'>
             <div className={style.form}>
                 
                 <form className="row gx-3 gy-2 align-items-center m-auto" onSubmit={SaveCustomer}>
@@ -56,6 +56,6 @@ export default function Order()
                 <CustomerList/>
                 
             </div>
-        </>
+        </div>
     )
 }

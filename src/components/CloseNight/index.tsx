@@ -16,7 +16,7 @@ export default function CloseNight(){
             <button className="btn btn-outline-danger" onClick={()=>{
                 dispatch(CleanOrders());
                 dispatch(CleanCustomers()); 
-                }}>Close night</button>
+                }}>Clear all customers and Orders</button>
         </div> 
     )
 }

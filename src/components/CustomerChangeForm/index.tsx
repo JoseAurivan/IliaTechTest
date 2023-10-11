@@ -19,12 +19,22 @@ export default function CustomerChangeForm({params}:{params: Customer | undefine
     }
 
     return(
-        <form onSubmit={sendChangeCustomer}>
-            <label>CUSTOMER:</label>
-            <input type="text" value={customerName} onChange={(event)=>{setCustomerName(event.target.value)}}/>
-            <label>EMAIL:</label>
-            <input type="text" value={customerEmail} onChange={(event)=>{setCustomerEmail(event.target.value)}}/>
-        <button type='submit'>Change Customer</button>
-    </form>
+        <form className="row gx-3 gy-2 align-items-center mb-2 m-auto" onSubmit={sendChangeCustomer}>
+            <div className="col-sm-3">
+                <label className="visually-hidden">Name:</label>
+                <input className="form-control" placeholder="Customer Name"value={customerName} onChange={evento=>{setCustomerName(evento.target.value)}}  type="text" id="name" ></input>
+            </div>
+            <div className="col-sm-3">
+                <label className="visually-hidden">Email:</label>
+                <div className="input-group">
+                    <div className="input-group-text">@</div>
+                        <input placeholder="Customer Email" className="form-control" value={customerEmail} type="email" onChange={evento=>{setCustomerEmail(evento.target.value)}}></input>
+                </div>
+            </div>
+            <div className="col-auto">
+                <button className="btn btn-primary" type="submit">Update Customer</button>
+            </div>
+            
+        </form>
     )
 }

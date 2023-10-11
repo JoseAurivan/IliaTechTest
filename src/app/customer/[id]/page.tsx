@@ -33,8 +33,10 @@ export default function Customer({params}:{params:{id:string}}){
 
 
     return(
-        <>
-           <Link href='/customer'><button>Voltar</button></Link> 
+        <div className='container'>
+
+            <button type="button" className="btn btn-outline-warning mt-2 mb-2">Voltar</button>
+            
             
 
            <CustomerChangeForm params={customer}/>
@@ -49,7 +51,7 @@ export default function Customer({params}:{params:{id:string}}){
           <OrderList key={params.id} id={params.id}/>
 
             
-        </>
+        </div>
 
     )
 }
