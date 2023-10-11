@@ -3,6 +3,8 @@ import Footer from '@/components/Footer'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import ReduxProvider from '@/components/ReduxProvider'
+import 'bootstrap/dist/css/bootstrap.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,9 +22,11 @@ export default function RootLayout({
       
       <body className={inter.className}>
         <div>
-          <Navbar></Navbar>
-          {children}
-          <Footer></Footer>
+          <ReduxProvider>
+            <Navbar></Navbar>
+            {children}
+            <Footer></Footer>
+          </ReduxProvider>
         </div>
       </body>
     </html>
