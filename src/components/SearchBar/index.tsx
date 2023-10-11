@@ -11,6 +11,7 @@ export default function Search()
     const search = useSelector((state:RootState) => state.search);
     const dispatch = useDispatch();
 
+
     return(
         <div>
             <input type="text" value={String(search)} placeholder="Search for something to filter here" onChange={(event)=>{dispatch(ChangeSearch(event.target.value))}}/>
