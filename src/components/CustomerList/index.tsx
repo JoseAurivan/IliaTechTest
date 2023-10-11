@@ -8,6 +8,7 @@ import { DeleteCustomer } from "@/store/reducers/customer";
 import CustomerListItem from "./CustomerListItem";
 import Search from "../SearchBar";
 import { Customer } from "@/types/customer";
+import styles from './Customer.module.scss'
 
 
 export default function CustomerList()
@@ -19,12 +20,12 @@ export default function CustomerList()
     return(
         <>
             <Search/>
-            <aside>
-                <ul>
+            <aside className={styles.container}>
+                <ol className="list-group list-group-numbered">
                     {customers?.map(customer=>(
                         <CustomerListItem params={customer} key={customer.customerId} />
                     ))}               
-                </ul>
+                </ol>
             </aside>
         </>
     )
