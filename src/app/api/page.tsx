@@ -19,7 +19,7 @@ export default function Api(){
             let query = "https://jsonplaceholder.typicode.com/todos?";
             if(id !== "") query += "id="+id+"&";
             if(userId !== "") query +="userId="+userId+"&";
-            if(completed !== "") query += "completed="+completed
+            if(completed === "true" || completed=="false") query += "completed="+completed
             console.log(query);     
             const response = await fetch(query);
              if (response.ok) {
@@ -54,33 +54,63 @@ export default function Api(){
 
 
     return(
-        <>
-            <div>
-                <form onSubmit={Filter}>
-                    <label>Id:</label>
-                    <input placeholder="numbers from 0 to 100" type="number" min="0" max="100" value={filter} onChange={event => setFilter(event.target.value)} id="filter"/> 
-                    <label>UserId:</label>
-                    <input placeholder="numbers from 0 to 10 "type="number" min="0" max="10" value={userIdFilter} onChange={event => setUserIdFilter(event.target.value)} id="filter"/> 
-                    <label>Completed:</label>
-                    <input type="radio" onClick={e => setIsChecked(!isChecked)} checked={isChecked} value="true" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/> 
-                    <label>Not Completed:</label>
-                    <input type="radio" onClick={e => setIsCheckedNotCompleted(!isCheckedNotCompleted)} checked={isCheckedNotCompleted} value="false" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/>
-                    <button type="submit" >Search</button>
-                </form>
-            </div>
+        <div className="container mt-2">
+            <div className="row">
+                <div className="col">
+                <div className="card">
+                    <div className="card-header">
+                        TODO API FETCH
+                    </div>
+                    <form className="row g-3 m-auto"onSubmit={Filter}>
+                        
 
-            {todos && 
-                <div>
-                
-                    RESULTADO:
-                    <ul>
-                        {todos.map(todo=>(<li key={todo.id}> {todo.title} / Completed: <input type="radio" checked={todo.completed} readOnly={true}/></li>))}
-                    </ul>
-                             
+                            <div className="col-md-6">
+                                <label className="form-label">ID:</label>
+                                <input className="form-control" placeholder="numbers from 0 to 100" type="number" min="0" max="100" value={filter} onChange={event => setFilter(event.target.value)} id="filter"/> 
+                            </div>
+                            <div className="col-md-6">
+                                <label className="form-label">USER ID:</label>
+                                <input className="form-control" placeholder="numbers from 0 to 10 "type="number" min="0" max="10" value={userIdFilter} onChange={event => setUserIdFilter(event.target.value)} id="filter"/> 
+                            </div>
+                            <div className="col-md-4">                            
+                                <input className="form-check-input" type="radio"  value="true" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/>
+                                <label className="form-check-label">Completed</label> 
+                            </div>
+                            <div className="col-md-4">
+
+                                <input className="form-check-input" type="radio"  value="false" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/>
+                                <label className="form-check-label">Not Completed</label>
+                            </div>
+                            <div className="col-md-4">
+                                <input className="form-check-input" type="radio"  value="" name="completed" onChange={event => setCompleted(event.target.value)} id="filter"/>
+                                <label className="form-check-label">Both</label>
+                                
+                            </div>
+                            <div className="card-footer">
+                                <div className="d-grid gap-2">
+                                    
+                                    <button className="btn btn-primary" type="submit" >Search</button>
+                                    
+                                </div>
+                            </div>
+                        
+                    </form>
+                    </div>
                 </div>
-            }
-
+                <div className="col">
+                    {todos && 
+                        <div className="row g-3 m-auto">
+                        
+                            RESULTADO:
+                            <ul>
+                                {todos.map(todo=>(<li key={todo.id}> {todo.title} / Completed: <input type="radio" checked={todo.completed} readOnly={true}/></li>))}
+                            </ul>
+                                    
+                        </div>
+                    }
+                </div>
+            </div>
             
-        </>
+        </div>
     )
 }
