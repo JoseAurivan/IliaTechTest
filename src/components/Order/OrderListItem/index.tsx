@@ -23,7 +23,7 @@ export default function OrderListItem({params}:{params:Order}){
 
     return(
         <div className="col">
-            <form className="p-3 border bg-light" onSubmit={sendChangeOrder}>
+            <form className="p-3 border bg-light rounded" onSubmit={sendChangeOrder}>
                 <h5 className="card-title mb-1">Order</h5>
                 <input className="form-control" type="text"  value={description} onChange={(event)=>{setDescription(event.target.value)}}/>
                 <div className="d-grid gap-2">

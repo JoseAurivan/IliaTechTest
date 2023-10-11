@@ -35,18 +35,23 @@ export default function Customer({params}:{params:{id:string}}){
     return(
         <div className='container'>
 
-            <button type="button" className="btn btn-outline-warning mt-2 mb-2">Voltar</button>
+            <button type="button" className="btn btn-outline-warning mt-2 mb-2">Back</button>
             
             
 
            <CustomerChangeForm params={customer}/>
-
-           <form onSubmit={SendOrder}>
-                <label>Description:</label>
-                <input required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
-                <button type="submit">Send Order</button>
-            </form>
-
+            
+                <form className="row gx-3 gy-2 align-items-center mb-2 m-auto shadow-sm p-3 mb-5 bg-white rounded" onSubmit={SendOrder}>
+                        <h4 className='card-header'>Order</h4>
+                        <label className="col-sm-2 col-form-label">Description:</label>
+                        <div className="col-sm-10">
+                            <input className="form-control" placeholder='insert order description' required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
+                        </div>
+                    
+                        <button className='btn btn-success' type="submit">Save Order</button>
+                 
+                </form>
+            
        
           <OrderList key={params.id} id={params.id}/>
 
