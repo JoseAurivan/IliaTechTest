@@ -25,7 +25,7 @@ export const postCustomer = async(customer:ICustomer) =>{
     const response = await api.post("/customer",customer);
     return response.status;
   }catch(error){
-    throw new Error('Error posting customer');
+    return 500;
   }
 }
 

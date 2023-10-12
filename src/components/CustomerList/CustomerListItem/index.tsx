@@ -8,24 +8,49 @@ import { ConvertCustomerAndOrderToInterface as Convert } from "@/utils/conversor
 import {postCustomer} from "@/utils/api";
 import classNames from "classnames";
 import styles from './Listitem.module.scss';
+import { useState } from "react";
 
 
 export default function CustomerListItem({params}:{params: Customer}){
     const dispatch = useDispatch();
 
+    const [errorMessage,setErrorMessage] = useState("");
+    const [successMessage,setSuccessMessage] = useState("");
+
     const orders = useSelector(selectOrderbyCustomerID(params.customerId));
 
-    function SendDeleteCustomer(id:string)
+    async function  SendDeleteCustomer(id:string)
     {
         const customer = Convert(params,orders);
-        const result = postCustomer(customer);
-        console.log(result);
-        dispatch(DeleteOrdersFromClient(id));    
-        dispatch(DeleteCustomer(id));                
+        try{
+            const result = await postCustomer(customer);
+            console.log(result.valueOf());
+            if(result.valueOf() == 201)
+            {
+
+                setSuccessMessage("Customer and Orders Saved");
+                setTimeout(() => {
+                    dispatch(DeleteOrdersFromClient(id));    
+                    dispatch(DeleteCustomer(id));
+                    setSuccessMessage("");
+                  }, 800);
+                
+            }else
+            {
+                setErrorMessage("An error Occurred");
+                setTimeout(() => {
+                    setErrorMessage("");
+                  }, 2500);
+            }
+        }catch(error){
+            console.log("PAGINA ERRO");
+        }                
     }
 
     return(
         <>
+        {successMessage && <div className="alert alert-success">{successMessage}</div>}
+        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
             <li className="list-group-item d-flex justify-content-between align-items-start">
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">Nome: {params.name}</div>
