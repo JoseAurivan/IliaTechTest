@@ -4,6 +4,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    height: 1rem;
     width: 100%;
     background-color:$dark-grey ;
     color: $light-grey;
@@ -11,5 +12,5 @@
 }
 
 .footer_text{
-    font-size: medium;
+    font-size: small;
 }
