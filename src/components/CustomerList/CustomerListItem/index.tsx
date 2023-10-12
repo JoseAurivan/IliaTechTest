@@ -24,7 +24,6 @@ export default function CustomerListItem({params}:{params: Customer}){
         const customer = Convert(params,orders);
         try{
             const result = await postCustomer(customer);
-            console.log(result.valueOf());
             if(result.valueOf() == 201)
             {
 
@@ -33,7 +32,7 @@ export default function CustomerListItem({params}:{params: Customer}){
                     dispatch(DeleteOrdersFromClient(id));    
                     dispatch(DeleteCustomer(id));
                     setSuccessMessage("");
-                  }, 800);
+                  }, 1000);
                 
             }else
             {
@@ -43,7 +42,7 @@ export default function CustomerListItem({params}:{params: Customer}){
                   }, 2500);
             }
         }catch(error){
-            console.log("PAGINA ERRO");
+            console.log("ERROR");
         }                
     }
 

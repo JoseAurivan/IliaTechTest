@@ -34,7 +34,7 @@ export const postCustomerList = async(customers:ICustomerList) =>{
     const response = await api.post("/customer/list",customers);
     return response.status;
   }catch(error){
-    throw new Error('Error posting customer List');
+    return 500;
   }
 }
 
@@ -43,7 +43,7 @@ export const deleteCustomer = async(id:number) =>{
     const response = await api.delete("/customer/"+(id.toString()));
     return response.status;
   }catch(error){
-    throw new Error('Error deleting customer');
+    return 500;
   }
 }
 
@@ -52,7 +52,7 @@ export const putCustomer = async(customer:ICustomer) =>{
     const response = await api.put("/customer/",customer);
     return response.status;
   }catch(error){
-    throw new Error('Error changing customer data');
+    return 500;
   }
 }
 
@@ -61,6 +61,6 @@ export const deleteOrder = async(id:number)=>{
     const response = await api.delete("/order/"+(id.toString()));
     return response.status;
   }catch(error){
-    throw new Error("Cant delete data");
+    return 500;
   }
 }
