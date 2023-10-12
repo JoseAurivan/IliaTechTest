@@ -4,11 +4,10 @@ import {api} from './axios';
 
 export const fetchCustomers = async():Promise<ICustomer[]>  => {
     try {
-      const response = await api.get<ICustomer[]>("/customer"); // Exemplo de rota
+      const response = await api.get<ICustomer[]>("/customer"); 
       return response.data;
     } catch (error) {
-      console.error('Error ao buscar dados do usuário:', error);
-      throw new Error('Erro ao buscar dados do usuário');
+      throw new Error('Error fetching customer');
     }
 }
 
@@ -17,8 +16,7 @@ export const fetchOrdersFromCustomer = async(id:number):Promise<IOrder[]> =>{
     const response = await api.get<IOrder[]>("/order/customer/"+(id.toString()));
     return response.data;
   }catch (error){
-    console.error('Error ao buscar dados do usuário:', error);
-    throw new Error('Erro ao buscar dados do usuário');
+    throw new Error('error fetching orders from customer');
   }
 }
 
@@ -27,8 +25,7 @@ export const postCustomer = async(customer:ICustomer) =>{
     const response = await api.post("/customer",customer);
     return response.status;
   }catch(error){
-    console.error('Error ao buscar dados do usuário:', error);
-    throw new Error('Erro ao buscar dados do usuário');
+    throw new Error('Error posting customer');
   }
 }
 
@@ -37,8 +34,7 @@ export const postCustomerList = async(customers:ICustomerList) =>{
     const response = await api.post("/customer/list",customers);
     return response.status;
   }catch(error){
-    console.error('Error ao buscar dados do usuário:', error);
-    throw new Error('Erro ao buscar dados do usuário');
+    throw new Error('Error posting customer List');
   }
 }
 
@@ -47,8 +43,7 @@ export const deleteCustomer = async(id:number) =>{
     const response = await api.delete("/customer/"+(id.toString()));
     return response.status;
   }catch(error){
-    console.error('Error ao buscar dados do usuário:', error);
-    throw new Error('Erro ao buscar dados do usuário');
+    throw new Error('Error deleting customer');
   }
 }
 
@@ -57,8 +52,7 @@ export const putCustomer = async(customer:ICustomer) =>{
     const response = await api.put("/customer/",customer);
     return response.status;
   }catch(error){
-    console.error('Error ao buscar dados do usuário:', error);
-    throw new Error('Erro ao buscar dados do usuário');
+    throw new Error('Error changing customer data');
   }
 }
 
