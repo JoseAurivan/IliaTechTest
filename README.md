@@ -30,15 +30,28 @@ There you can acess then using API requests done with Axios by clicking on the S
 - Next Js 13
 - Next JS built in Route Handler
 - Unit Tests with JEST
+- .NET Backend Tested With xUnit
+- Typescript
 
 
-## Dev build
+## Running
+
+Before all
+
+```bash
+    npm install
+```
 
 To run on dev mode
 
 ```bash
-  npm install
   npm run dev
+```
+
+To run on production mode
+```bash
+  npm run build
+  npm run start
 ```
 
 
