@@ -28,7 +28,7 @@ export default function ApiCustomerListItem({params}:{params: ICustomer}){
 
         }else
         {
-            setErrorMessage("Unable to delete Customer")
+            setErrorMessage("Unable to delete Customer.Try to reload the page.")
             setTimeout(() => {
                 
                 setErrorMessage("");
