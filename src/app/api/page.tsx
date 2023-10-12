@@ -1,8 +1,9 @@
 "use client"
-import { Todo } from "@/types/todo"
+import { Todo } from "@/types/todo";
 import classNames from "classnames";
 import { todo } from "node:test";
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import style from './Api.module.scss';
 
 export default function Api(){
 
@@ -103,7 +104,7 @@ export default function Api(){
                         <div className=" overflow-auto ">
                         
                             FETCH RESULT:
-                            <ul className="list-group">
+                            <ul className={classNames({"list-group":true},{[style.ul]:true})}>
                                 {todos.map(todo=>(
                                     <li className="list-group-item d-flex justify-content-between align-items-center" key={todo.id}> {todo.title}
                                             <span className={classNames({"badge  rounded-pill":true},{'bg-primary':todo.completed},{"bg-danger":!todo.completed})}>
