@@ -6,7 +6,8 @@ import { RootState } from "@/store";
 import style from './CloseNight.module.scss'
 import classNames from "classnames";
 import {Customer} from "@/types/customer";
-import {Order} from "@/types/order"
+import {Order} from "@/types/order";
+import {postCustomerList} from "@/utils/api"
 import { ConvertCustomersAndOrdersToInterface as Convert } from "@/utils/conversor";
 
 
@@ -21,8 +22,9 @@ export default function CloseNight(){
 
     function handleCloseNight(){
 
-        Convert(customers,orders);
-
+        const customerList = Convert(customers,orders);
+        const result = postCustomerList(customerList);
+        console.log(result);
         dispatch(CleanOrders());
         dispatch(CleanCustomers()); 
     }
