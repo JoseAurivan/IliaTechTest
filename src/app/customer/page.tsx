@@ -8,6 +8,7 @@ import { useSelector as Selector,useDispatch } from 'react-redux';
 import { UseSelector } from 'react-redux/es/hooks/useSelector';
 import { AddCustomer } from '@/store/reducers/customer';
 import { v4 as uuid } from 'uuid';
+import Link from 'next/link';
 
 export default function Order()
 {
@@ -49,6 +50,7 @@ export default function Order()
                     </div>
                     <div className="col-auto">
                         <button className="btn btn-primary" type="submit">Save Customer</button>
+                        <Link href="/customer/api" className="btn btn-outline-primary" >See Customers</Link>
                     </div>
                     
                 </form>

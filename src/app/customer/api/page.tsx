@@ -3,6 +3,7 @@
 import { ICustomer } from "@/types/customer";
 import { fetchCustomers } from "@/utils/api";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Customers(){
 
@@ -28,7 +29,11 @@ export default function Customers(){
 
     return(
         <div className="container">
-            {data.length > 0 ? data.map(data =>(<li key={data.customerId}> {data.name} </li>)) : <p> {message}</p>}
+            {data.length > 0 ?
+             data.map(data =>(
+              <li key={data.customerId}> {data.name}<Link href={"/customer/api/"+data.customerId}> Check Orders</Link>  </li>
+             )) 
+             : <p> {message}</p>}
         </div>
     )
 
