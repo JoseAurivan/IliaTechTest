@@ -20,7 +20,7 @@ export default function Customers(){
     };
 
     fetchDataAsync();
-    if(data.length > 0){
+    if(data.length == 0){
         setMessage("No customers are registered");
     }
   
