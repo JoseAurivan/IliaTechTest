@@ -12,6 +12,9 @@ export default function ApiCustomer({params}:{params:{id:number}}){
     const [data, setData] = useState<IOrder[]>([]);
     const [message, setMessage] = useState("Getting data from backend...");
 
+    const [sucessMessage, setSucessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
     const router = useRouter();
 
     useEffect(()=>{
@@ -33,17 +36,32 @@ export default function ApiCustomer({params}:{params:{id:number}}){
 
     async function HandleDelete(id: number){
       const response = await deleteOrder(id);
-      console.log(response.toString());
-      window.location.reload();
+      if(response.valueOf()==200)
+      {
+        setSucessMessage("Order deleted. Updating List...");
+            setTimeout(() => {
+                
+                window.location.reload();
+              }, 800);
+
+      }else{
+        setErrorMessage("Unable to delete Order.Try to reload the page.")
+            setTimeout(() => {                
+                setErrorMessage("");
+              }, 1400);
+      }
+      
     }
 
     return(
         <div className="container">
           <button type="button" onClick={()=>router.push('/customer/api')} className="btn btn-outline-warning mt-2 mb-2">Back</button>
+          {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+          {sucessMessage && <div className="alert alert-success">{sucessMessage}</div>}
           <ol className="list-group list-group-numbered">
             {data.length > 0 ?
              data.map(data =>(
-              <li key={data.orderId} className="p-3 border bg-light rounded"> {data.description}
+              <li key={data.orderId} className="p-3 border bg-light rounded"> {data.description}            
                 <div key={data.orderId} className="ms-2 ml-auto justify-content-end">
                   <button className="btn btn-danger" onClick={()=>HandleDelete(data.orderId)}>DELETE</button>
                 </div>

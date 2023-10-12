@@ -15,9 +15,7 @@ export default function Customers(){
     const [message, setMessage] = useState("Getting data from backend...");
 
     const router = useRouter()
-
-    useEffect(()=>{
-      const fetchDataAsync = async () => {
+    async function fetchDataAsync(){
       try {
         const result = await fetchCustomers();
         setData(result);
@@ -26,8 +24,9 @@ export default function Customers(){
       }
     };
 
-    fetchDataAsync();
-    if(data.length == 0){
+    useEffect(()=>{
+      fetchDataAsync();
+      if(data.length == 0){
         setMessage("No customers are registered");
     }
   

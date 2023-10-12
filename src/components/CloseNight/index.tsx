@@ -27,30 +27,36 @@ export default function CloseNight(){
     const orders  = useSelector(getOrders());
 
     async function handleCloseNight(){
-
         const customerList = Convert(customers,orders);
-        try{
-            const result = await postCustomerList(customerList);
-            if(result.valueOf()==201)
-            {
-                dispatch(CleanOrders());
-                dispatch(CleanCustomers());
-                setSuccessMessage("Customers and Orders Saved");
-                setTimeout(() => {
-                    setSuccessMessage("");
-                  }, 1000);
-            }
-            else
-            {
-                setErrorMessage("An error Occurred");
-                setTimeout(() => {
-                    setErrorMessage("");
-                  }, 2500);
-            }
+        if(customers.length>=1){
+            try{
+                    const result = await postCustomerList(customerList);
+                    if(result.valueOf()==201)
+                    {
+                        dispatch(CleanOrders());
+                        dispatch(CleanCustomers());
+                        setSuccessMessage("Customers and Orders Saved");
+                        setTimeout(() => {
+                            setSuccessMessage("");
+                        }, 1000);
+                    }
+                    else
+                    {
+                        setErrorMessage("An error Occurred");
+                        setTimeout(() => {
+                            setErrorMessage("");
+                        }, 2500);
+                    }
 
-        }catch(error){
+                }catch(error){
 
-        } 
+                } 
+        }else{
+            setErrorMessage("No customers or orders. Please Add a customer.");
+            setTimeout(() => {
+                setErrorMessage("");
+            }, 2500);
+        }
     }
 
     return(
