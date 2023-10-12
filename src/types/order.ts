@@ -6,3 +6,9 @@ export type Order = {
     customerId: string;
 }
 
+export interface IOrder {
+    description:string;
+    orderId:number;
+    customerId:number;
+}
+

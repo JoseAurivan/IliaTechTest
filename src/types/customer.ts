@@ -5,3 +5,9 @@ export type Customer = {
     email: string;
     customerId: string;
 }
+
+export interface ICustomer {
+    name: string;
+    email:string;
+    customerId: number
+}

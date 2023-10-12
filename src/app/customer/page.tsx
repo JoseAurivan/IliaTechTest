@@ -19,7 +19,7 @@ export default function Order()
     {
         console.log("clicou");
         event.preventDefault();
-        const customer = {name: customerName, email: customerEmail, customerId: uuid()};
+        const customer : Customer = {name: customerName, email: customerEmail, customerId: uuid()};
         dispatch(AddCustomer(customer));
         ClearAllFields();
     }
