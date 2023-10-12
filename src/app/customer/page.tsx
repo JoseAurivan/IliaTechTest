@@ -39,13 +39,13 @@ export default function Order()
                 <form className="row gx-3 gy-2 align-items-center m-auto" onSubmit={SaveCustomer}>
                     <div className="col-sm-3">
                         <label className="visually-hidden">Name:</label>
-                        <input className="form-control" placeholder="Customer Name"value={customerName} onChange={evento=>{setCustomerName(evento.target.value)}}  type="text" id="name" ></input>
+                        <input className="form-control" placeholder="Customer Name"value={customerName} onChange={evento=>{setCustomerName(evento.target.value)}}  type="text" id="name" required></input>
                     </div>
                     <div className="col-sm-3">
                         <label className="visually-hidden">Email:</label>
                         <div className="input-group">
                             <div className="input-group-text">@</div>
-                                <input placeholder="Customer Email" className="form-control" value={customerEmail} type="email" onChange={evento=>{setCustomerEmail(evento.target.value)}}></input>
+                                <input placeholder="Customer Email" className="form-control" value={customerEmail} type="email" onChange={evento=>{setCustomerEmail(evento.target.value)}} required></input>
                         </div>
                     </div>
                     <div className="col-auto">
