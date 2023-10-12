@@ -17,7 +17,6 @@ export default function Customer({params}:{params:{id:string}}){
     const router = useRouter()
 
     const [description, setDescription] = useState('');
-    const [error, setError] = useState('');
     const input = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
 
