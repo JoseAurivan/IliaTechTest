@@ -43,7 +43,11 @@ export default function ApiCustomer({params}:{params:{id:number}}){
           <ol className="list-group list-group-numbered">
             {data.length > 0 ?
              data.map(data =>(
-              <li key={data.orderId} className="p-3 border bg-light rounded"> {data.description} <button className="btn btn-danger" onClick={()=>HandleDelete(data.orderId)}>DELETE</button> </li>
+              <li key={data.orderId} className="p-3 border bg-light rounded"> {data.description}
+                <div key={data.orderId} className="ms-2 ml-auto justify-content-end">
+                  <button className="btn btn-danger" onClick={()=>HandleDelete(data.orderId)}>DELETE</button>
+                </div>
+              </li>
              )) 
              : <p> {message}</p>}
           </ol>
