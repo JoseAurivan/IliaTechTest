@@ -15,5 +15,5 @@ export interface ICustomer {
 }
 
 export interface ICustomerList{
-    customers: ICustomer[]
+    customers: ICustomer[];
 }

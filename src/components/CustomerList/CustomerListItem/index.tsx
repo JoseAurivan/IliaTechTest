@@ -1,16 +1,25 @@
 import Link from "@/components/Link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Customer } from "@/types/customer";
 import { DeleteCustomer } from "@/store/reducers/customer";
 import { DeleteOrdersFromClient } from "@/store/reducers/order";
+import { selectOrderbyCustomerID } from "@/store";
+import { ConvertCustomerAndOrderToInterface as Convert } from "@/utils/conversor";
+import {postCustomer} from "@/utils/api";
 import classNames from "classnames";
 import styles from './Listitem.module.scss';
+
 
 export default function CustomerListItem({params}:{params: Customer}){
     const dispatch = useDispatch();
 
+    const orders = useSelector(selectOrderbyCustomerID(params.customerId));
+
     function SendDeleteCustomer(id:string)
     {
+        const customer = Convert(params,orders);
+        const result = postCustomer(customer);
+        console.log(result);
         dispatch(DeleteOrdersFromClient(id));    
         dispatch(DeleteCustomer(id));                
     }

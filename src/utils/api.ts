@@ -14,7 +14,7 @@ export const fetchCustomers = async():Promise<ICustomer[]>  => {
 
 export const fetchOrdersFromCustomer = async(id:number):Promise<IOrder[]> =>{
   try{
-    const response = await api.get<IOrder[]>("order/customer/"+(id.toString()));
+    const response = await api.get<IOrder[]>("/order/customer/"+(id.toString()));
     return response.data;
   }catch (error){
     console.error('Error ao buscar dados do usuário:', error);
@@ -24,7 +24,7 @@ export const fetchOrdersFromCustomer = async(id:number):Promise<IOrder[]> =>{
 
 export const postCustomer = async(customer:ICustomer) =>{
   try{
-    const response = await api.post("api/customer",customer);
+    const response = await api.post("/customer",customer);
     return response.status;
   }catch(error){
     console.error('Error ao buscar dados do usuário:', error);
