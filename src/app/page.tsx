@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import style from './Home.module.scss'
 import classNames from 'classnames'
+import NextLink from 'next/link';
 export default function Home() {
   return (
     <div className="container">
@@ -33,7 +34,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="card-footer d-grid gap-2">
-                  <button className="btn btn-outline-primary">Go to Customers</button>
+                  <NextLink href="/customer" className="btn btn-outline-primary"> Go to Customers</NextLink>
                 </div>
               </div>
             </div>
@@ -55,7 +56,7 @@ export default function Home() {
 
                 </div>
                 <div className="card-footer d-grid gap-2">
-                  <button className="btn btn-outline-primary">Go to API</button>
+                  <NextLink href='/api' className="btn btn-outline-primary">Go to API</NextLink>
                 </div>
               </div>
             </div>
