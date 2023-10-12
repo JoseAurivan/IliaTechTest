@@ -11,21 +11,34 @@ import { v4 as uuid } from 'uuid';
 import { AddOrder } from '@/store/reducers/order';
 import { Customer } from '@/types/customer';
 import CustomerChangeForm from '@/components/CustomerChangeForm';
+import { validNameSize } from '@/validation/validate';
 
 export default function Customer({params}:{params:{id:string}}){
 
     const router = useRouter()
 
     const [description, setDescription] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
     const input = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
 
 
     function SendOrder(event : React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        const order : Order = {description: description, orderId: uuid(), customerId:params.id}
-        dispatch(AddOrder(order));
-        setDescription('');
+        if(validNameSize.test(description))
+        {
+            const order : Order = {description: description, orderId: uuid(), customerId:params.id}
+            dispatch(AddOrder(order));
+            setDescription('');        
+        }
+        else
+        {          
+            setErrorMessage("Description must have at least one character.")
+            setTimeout(() => {
+                setErrorMessage("");
+              }, 2500);
+        }
         if(input.current) input.current.focus();
     }
 
@@ -47,11 +60,13 @@ export default function Customer({params}:{params:{id:string}}){
                         <h4 className='card-header'>Order</h4>
                         <label className="col-sm-2 col-form-label">Description:</label>
                         <div className="col-sm-10">
-                            <input className="form-control" placeholder='insert order description' required ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
+                            <input className="form-control" placeholder='insert order description'  ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
                         </div>
                     
                         <button className='btn btn-success' type="submit">Save Order</button>
-                 
+                        {errorMessage &&<div className='alert alert-danger'>
+                            {errorMessage}
+                        </div>}
                 </form>
             
        

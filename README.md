@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Ília tech test
 
-First, run the development server:
+
+
+
+## Autors
+
+- [@JoseAurivan](https://www.github.com/JoseAurivan)
+
+
+## About
+This project fetches a public API and uses a Domain with:
+- Customers
+- Orders
+
+## Domain
+The domain is managed using Redux and when the user clicks on the "Clear all customers and Orders" button all the data that is stored in Redux is sent to a Postgres Database using an API made from scratch with .NET.
+
+
+## API FETCH
+There you can acess then using API requests done with Axios by clicking on the See customers button.
+
+
+## Perks
+
+- Integration .NET Backend
+- Real time state management with Redux and Redux Immer
+- Responsive Layout
+- Next Js 13
+- Next JS built in Route Handler
+- Unit Tests with JEST
+- .NET Backend Tested With xUnit
+- Typescript
+
+
+## Running
+
+Before all
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run on dev mode
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To run on production mode
+```bash
+  npm run build
+  npm run start
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Running tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run tests use the following command
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  npm run test
+```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Front-end:** React, Redux, Bootstrap, SASS
+
+**Back-end:** .NET
+
+
+## BackEnd Project
+
+ - [.NET Backend](https://github.com/JoseAurivan/IliaTechTestBackEnd)
+
+
