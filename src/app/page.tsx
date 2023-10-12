@@ -47,7 +47,7 @@ export default function Home() {
                   <h5 className="card-title">How it works?</h5>
                   <p className="card-text">With the form on your left you will be able to select your params for the data fetch</p>
                   <p className="card-text">That data fetch is done by using the built in NextJS Route Handlers</p>
-                  <p className="card-text">You can also see the api by checking the link: </p>
+                  <p className="card-text">You can also see the api by checking the link:<NextLink href="/api/todo" className="link-info"> Check JSON API </NextLink> </p>
                 </div>
                 <div className="container mb-2">
 
