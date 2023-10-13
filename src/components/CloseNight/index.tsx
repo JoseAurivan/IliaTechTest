@@ -63,7 +63,7 @@ export default function CloseNight(){
 		<div className={classNames({"d-grid gap-2":true},{[style.container]:true})}>
 			{successMessage && <div className="alert alert-success">{successMessage}</div>}
 			{errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-			<button className="btn btn-outline-danger" onClick={()=>handleCloseNight()}>Clear all customers and Orders</button>
+			<button className="btn btn-danger" onClick={()=>handleCloseNight()}>Clear all customers and Orders</button>
 		</div> 
 	);
 }

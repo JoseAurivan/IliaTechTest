@@ -52,7 +52,7 @@ export default function ApiCustomerListItem({params}:{params: ICustomer}){
 					<Link href={"/customer/api/"+params.customerId}>
 						<button className={classNames({"badge bg-info rounded-pill":true},{[styles.close]:true})}>See orders</button>
 					</Link>
-					<button className={classNames({"badge bg-danger":true},{[styles.close]:true})} onClick={()=>HandleDeleteCustomer(params.customerId)}>Delete</button>
+					<button className={classNames({"badge bg-danger rounded-pill":true},{[styles.close]:true})} onClick={()=>HandleDeleteCustomer(params.customerId)}>Delete</button>
 				</div>
 			</li>
 		</>

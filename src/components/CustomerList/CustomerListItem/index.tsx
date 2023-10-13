@@ -60,7 +60,7 @@ export default function CustomerListItem({params}:{params: Customer}){
 					<Link href={"/customer/"+params.customerId}>
 						<button className={classNames({"badge bg-info rounded-pill":true},{[styles.close]:true})}>See orders</button>
 					</Link>
-					<button className={classNames({"badge bg-info ":true},{[styles.close]:true})} onClick={()=>SendDeleteCustomer(params.customerId)}>Close tab</button>
+					<button className={classNames({"badge bg-info rounded-pill ":true},{[styles.close]:true})} onClick={()=>SendDeleteCustomer(params.customerId)}>Close tab</button>
 				</div>
 			</li>
 		</>

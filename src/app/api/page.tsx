@@ -54,7 +54,7 @@ export default function Api(){
 
 
 	return(
-		<div className="container mt-2">
+		<div className="container-fluid mt-2">
 			<div className="row">
 				<div className="col">
 					<div className="card">
