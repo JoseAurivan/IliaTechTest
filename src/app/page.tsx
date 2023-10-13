@@ -4,63 +4,58 @@ import classNames from 'classnames'
 import NextLink from 'next/link';
 export default function Home() {
   return (
-    <div className="container">
-      <div className="panel panel-default">        
-        <h5 className="panel-heading" id='card-title'>Home Page</h5>
-          <div className="panel-body">
-            <h6 className="card-subtitle mb-2 text-muted">This is the home page of the project.</h6>
-          </div>
+    <div className="container mt-4">
+      <div className="jumbotron jumbotron-fluid">
+        <div className="container bg-light">
+          <h1 className="display-4">CUSTOMER-ORDER DOMAIN</h1>
+          <p className="lead">To operate within this domain this project uses Redux at its first stage then connects to the API with AXIOS. The backend in .NET handles all of the Calls.</p>
+          <p className="lead">
+            <NextLink href={"/customers"} className="btn btn-primary btn-lg" role="button">GO TO CUSTOMERS</NextLink>
+          </p>
           <div className="container px-4">
-          <div className="row">
-            <div className="col">
-              <div className="card">
-                <div className="card-header">
-                  CUSTOMER
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">How it works?</h5>
-                  <p className="card-text">The customers page works using Redux with Immer during its use.</p>
-                  <p className="card-text">When you click the close night button you will send all of the Customers and Orders to our .NET backend.</p>
-                  <p className="card-text">Then you will be albe to perform CRUD operations with that data when you click the Check Customers button.</p>
-                </div>
-                <div className="container mb-2">
-                    <div className="row g-2">
-                      <div className="col-6 g-2">
-                        <span className="badge rounded-pill bg-primary">NEXT JS</span> 
-                        <span className="badge rounded-pill bg-primary">.NET</span> 
-                        <span className="badge rounded-pill bg-primary">REDUX</span> 
-                        <span className="badge rounded-pill bg-primary">AXIOS</span> 
-                      </div>
-                    </div>
-                </div>
-                <div className="card-footer d-grid gap-2">
-                  <NextLink href="/customer" className="btn btn-outline-primary"> Go to Customers</NextLink>
+            <div className="row gx-2">
+              <div className="col">
+              <div className="p-3">
+                <div className={classNames({"card":true},{[style.card]:true})}>
+                  <div className="card-body">
+                    <h5 className="card-title" id="card-title">Redux IMMER</h5>
+                    <p className="card-text">In this project was used Redux Immer. A tool that helps us deal with state mutability</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col">
-            <div className="card">
-                <div className="card-header">
-                  PUBLIC API FETCHING
+              </div>
+              <div className="col">
+                <div className="p-3">
+                  <div className={classNames({"card":true},{[style.card]:true})}>
+                    <div className="card-body">
+                      <h5 className="card-title">AXIOS</h5>
+                      <p className="card-text">Axios is a promise based HTTP client for the browser that helps us make API calls</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="card-body">
-                  <h5 className="card-title">How it works?</h5>
-                  <p className="card-text">With the form on your left you will be able to select your params for the data fetch</p>
-                  <p className="card-text">That data fetch is done by using the built in NextJS Route Handlers</p>
-                  <p className="card-text">You can also see the api by checking the link:<NextLink href="/api/todo" className="link-info"> Check JSON API </NextLink> </p>
-                </div>
-                <div className="container mb-2">
-
-                        <span className="badge rounded-pill bg-primary mr-2 ml-2">NEXT JS</span>
-                        <span className="badge rounded-pill bg-primary mr-2 ml-2">ROUTE HANDLERS</span>
-
-                </div>
-                <div className="card-footer d-grid gap-2">
-                  <NextLink href='/api' className="btn btn-outline-primary">Go to API</NextLink>
+              </div>
+              <div className="col">
+                <div className="p-3">
+                  <div className={classNames({"card":true},{[style.card]:true})}>
+                    <div className="card-body">
+                      <h5 className="card-title">.NET Backend</h5>
+                      <p className="card-text">The backend for this application was built from scratch using .NET</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="jumbotron jumbotron-fluid mt-4">
+        <div className="container bg-light">
+          <h1 className="display-4">API FETCHING</h1>
+          <p className="lead">In this project you can fetch a public API - https://jsonplaceholder.typicode.com/todos . You can check the api being fetched by the built-in NextJS Router on this link: <NextLink href="/api/todo" className='link-info'> Consume</NextLink>
+          </p>
+          <p className="lead">
+            <NextLink href={"/api"} className="btn btn-primary btn-lg" role="button">GO TO API</NextLink>
+          </p>
         </div>
       </div>
     </div>
