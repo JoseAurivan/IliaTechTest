@@ -10,7 +10,7 @@ export default function Home() {
           <h1 className="display-4">CUSTOMER-ORDER DOMAIN</h1>
           <p className="lead">To operate within this domain this project uses Redux at its first stage then connects to the API with AXIOS. The backend in .NET handles all of the Calls.</p>
           <p className="lead">
-            <NextLink href={"/customers"} className="btn btn-primary btn-lg" role="button">GO TO CUSTOMERS</NextLink>
+            <NextLink href={"/customer"} className="btn btn-primary btn-lg" role="button">GO TO CUSTOMERS</NextLink>
           </p>
           <div className="container px-4">
             <div className="row gx-2">
