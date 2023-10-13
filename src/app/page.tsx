@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="container mt-4">
       <div className="jumbotron jumbotron-fluid">
-        <div className="container bg-light">
+        <div className="container bg-light bg-gradient">
           <h1 className="display-4">CUSTOMER-ORDER DOMAIN</h1>
           <p className="lead">To operate within this domain this project uses Redux at its first stage then connects to the API with AXIOS. The backend in .NET handles all of the Calls.</p>
           <p className="lead">
