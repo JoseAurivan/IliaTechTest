@@ -35,10 +35,10 @@ export default function CloseNight(){
                     {
                         dispatch(CleanOrders());
                         dispatch(CleanCustomers());
-                        setSuccessMessage("Customers and Orders Saved");
+                        setSuccessMessage("Customers and Orders Saved. Check them on See Customers button");
                         setTimeout(() => {
                             setSuccessMessage("");
-                        }, 1000);
+                        }, 1500);
                     }
                     else
                     {

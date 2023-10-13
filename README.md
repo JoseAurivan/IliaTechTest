@@ -36,6 +36,8 @@ There you can acess then using API requests done with Axios by clicking on the S
 
 ## Running
 
+If is necessary to change the api port go to src/utils/axios.ts currently is set to the port 5149
+
 Before all
 
 ```bash
