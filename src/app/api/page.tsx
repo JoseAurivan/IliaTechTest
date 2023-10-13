@@ -54,9 +54,9 @@ export default function Api(){
 
 
 	return(
-		<div className="container mt-2">
+		<div className="container mt-2 ">
 			<div className="row">
-				<div className="col md-6">
+				<div className="col-sm ">
 					<div className="card">
 						<div className="card-header">
                             TODO API FETCH
@@ -97,7 +97,7 @@ export default function Api(){
 						</form>
 					</div>
 				</div>
-				<div className="col md-6">
+				<div className="col-sm ">
 					{todos && 
                         <div className=" overflow-auto ">
                         
