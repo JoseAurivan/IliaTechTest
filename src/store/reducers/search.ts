@@ -4,17 +4,17 @@ const initialState : string = "";
 
 
 const searchSlice = createSlice({
-    name:"search",
-    initialState,
-    reducers: {
-        ChangeSearch:(state,{payload})=>{
-            return payload;
-        },
-        ClearSearch:()=>{
-            return initialState;
-        }
-    }
-})
+	name:"search",
+	initialState,
+	reducers: {
+		ChangeSearch:(state,{payload})=>{
+			return payload;
+		},
+		ClearSearch:()=>{
+			return initialState;
+		}
+	}
+});
 
 export const {ChangeSearch, ClearSearch} = searchSlice.actions;
 export default searchSlice.reducer;

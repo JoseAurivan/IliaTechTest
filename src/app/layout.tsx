@@ -1,34 +1,32 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import ReduxProvider from '@/components/ReduxProvider'
-import 'bootstrap/dist/css/bootstrap.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import "./globals.css";
+import type { Metadata } from "next";
+import ReduxProvider from "@/components/ReduxProvider";
+import "bootstrap/dist/css/bootstrap.css";
+import React from "react";
 
 export const metadata: Metadata = {
-  title: 'Technical Test Ilia'
-}
+	title: "Technical Test Ilia"
+};
 
 export default function RootLayout({
-  children,
+	children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
+	return (
+		<html lang="en">
       
-      <body className='bg-body'>
-        <div>
-          <ReduxProvider>
-            <Navbar></Navbar>
-            {children}
-            <Footer></Footer>
-          </ReduxProvider>
-        </div>
-      </body>
-    </html>
-  )
+			<body className='bg-body'>
+				<div>
+					<ReduxProvider>
+						<Navbar></Navbar>
+						{children}
+						<Footer></Footer>
+					</ReduxProvider>
+				</div>
+			</body>
+		</html>
+	);
 }

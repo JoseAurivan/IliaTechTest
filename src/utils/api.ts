@@ -1,66 +1,66 @@
-import { IOrder } from '@/types/order';
-import {ICustomer, ICustomerList} from '../types/customer';
-import {api} from './axios';
+import { IOrder } from "@/types/order";
+import {ICustomer, ICustomerList} from "../types/customer";
+import {api} from "./axios";
 
 export const fetchCustomers = async():Promise<ICustomer[]>  => {
-    try {
-      const response = await api.get<ICustomer[]>("/customer"); 
-      return response.data;
-    } catch (error) {
-      throw new Error('Error fetching customer');
-    }
-}
+	try {
+		const response = await api.get<ICustomer[]>("/customer"); 
+		return response.data;
+	} catch (error) {
+		throw new Error("Error fetching customer");
+	}
+};
 
 export const fetchOrdersFromCustomer = async(id:number):Promise<IOrder[]> =>{
-  try{
-    const response = await api.get<IOrder[]>("/order/customer/"+(id.toString()));
-    return response.data;
-  }catch (error){
-    throw new Error('error fetching orders from customer');
-  }
-}
+	try{
+		const response = await api.get<IOrder[]>("/order/customer/"+(id.toString()));
+		return response.data;
+	}catch (error){
+		throw new Error("error fetching orders from customer");
+	}
+};
 
 export const postCustomer = async(customer:ICustomer) =>{
-  try{
-    const response = await api.post("/customer",customer);
-    return response.status;
-  }catch(error){
-    return 500;
-  }
-}
+	try{
+		const response = await api.post("/customer",customer);
+		return response.status;
+	}catch(error){
+		return 500;
+	}
+};
 
 export const postCustomerList = async(customers:ICustomerList) =>{
-  try{
-    const response = await api.post("/customer/list",customers);
-    return response.status;
-  }catch(error){
-    return 500;
-  }
-}
+	try{
+		const response = await api.post("/customer/list",customers);
+		return response.status;
+	}catch(error){
+		return 500;
+	}
+};
 
 export const deleteCustomer = async(id:number) =>{
-  try{
-    const response = await api.delete("/customer/"+(id.toString()));
-    return response.status;
-  }catch(error){
-    return 500;
-  }
-}
+	try{
+		const response = await api.delete("/customer/"+(id.toString()));
+		return response.status;
+	}catch(error){
+		return 500;
+	}
+};
 
 export const putCustomer = async(customer:ICustomer) =>{
-  try{
-    const response = await api.put("/customer/",customer);
-    return response.status;
-  }catch(error){
-    return 500;
-  }
-}
+	try{
+		const response = await api.put("/customer/",customer);
+		return response.status;
+	}catch(error){
+		return 500;
+	}
+};
 
 export const deleteOrder = async(id:number)=>{
-  try{
-    const response = await api.delete("/order/"+(id.toString()));
-    return response.status;
-  }catch(error){
-    return 500;
-  }
-}
+	try{
+		const response = await api.delete("/order/"+(id.toString()));
+		return response.status;
+	}catch(error){
+		return 500;
+	}
+};
