@@ -23,12 +23,12 @@ export default function OrderListItem({params}:{params:Order}){
 
     return(
         <div className="col">
-            <form className="p-3 border bg-light rounded" onSubmit={sendChangeOrder}>
+            <form className="p-3 border bg-dark bg-gradient text-white rounded" onSubmit={sendChangeOrder}>
                 <h5 className="card-title mb-1">Order</h5>
                 <input className="form-control" type="text"  value={description} onChange={(event)=>{setDescription(event.target.value)}}/>
                 <div className="d-grid gap-2">
-                    <button className="btn btn-outline-warning mt-2 mb-2" type="submit">Change description</button>
-                    <button className="btn btn-outline-danger" onClick={()=>SuspendOrder(params.orderId)}>Suspend Order</button>
+                    <button className="btn btn-warning mt-2 mb-2" type="submit">Change description</button>
+                    <button className="btn btn-danger" onClick={()=>SuspendOrder(params.orderId)}>Suspend Order</button>
                 </div>
             </form>         
         </div>

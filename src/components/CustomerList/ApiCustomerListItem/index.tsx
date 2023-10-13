@@ -43,7 +43,7 @@ export default function ApiCustomerListItem({params}:{params: ICustomer}){
         <>
         {message && <div className="alert alert-success">{message}</div>}
         {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        <li className="list-group-item d-flex justify-content-between align-items-start">
+        <li className="list-group-item d-flex justify-content-between align-items-start bg-dark bg-gradient text-white">
             
             <div className="ms-2 me-auto">
                 <div className="fw-bold">Nome: {params.name}</div>
@@ -51,7 +51,7 @@ export default function ApiCustomerListItem({params}:{params: ICustomer}){
             </div>
             <div className="ms-2 ml-auto justify-content-end">
                 <Link href={"/customer/api/"+params.customerId}>
-                    <button className={classNames({"badge bg-primary rounded-pill":true},{[styles.close]:true})}>See orders</button>
+                    <button className={classNames({"badge bg-info rounded-pill":true},{[styles.close]:true})}>See orders</button>
                 </Link>
                 <button className={classNames({"badge bg-danger":true},{[styles.close]:true})} onClick={()=>HandleDeleteCustomer(params.customerId)}>Delete</button>
             </div>

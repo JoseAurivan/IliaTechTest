@@ -106,7 +106,7 @@ export default function Api(){
                             FETCH RESULT:
                             <ul className={classNames({"list-group":true},{[style.ul]:true})}>
                                 {todos.map(todo=>(
-                                    <li className="list-group-item d-flex justify-content-between align-items-center" key={todo.id}> {todo.title}
+                                    <li className="list-group-item d-flex justify-content-between align-items-center bg-dark bg-gradient text-white" key={todo.id}> {todo.title}
                                             <span className={classNames({"badge  rounded-pill":true},{'bg-primary':todo.completed},{"bg-danger":!todo.completed})}>
                                                 {todo.completed ? "Completed" : "Incomplete"}
                                             </span>

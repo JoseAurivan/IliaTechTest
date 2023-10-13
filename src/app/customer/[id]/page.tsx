@@ -56,14 +56,14 @@ export default function Customer({params}:{params:{id:string}}){
 
            <CustomerChangeForm params={customer}/>
             
-                <form className="row gx-3 gy-2 align-items-center mb-2 m-auto shadow-sm p-3 mb-5 bg-white rounded" onSubmit={SendOrder}>
+                <form className="row gx-3 gy-2 align-items-center mb-2 m-auto shadow-sm p-3 mb-5 bg-dark text-white bg-gradient rounded" onSubmit={SendOrder}>
                         <h4 className='card-header'>Order</h4>
                         <label className="col-sm-2 col-form-label">Description:</label>
                         <div className="col-sm-10">
                             <input className="form-control" placeholder='insert order description'  ref={input} value={description} type="text" onChange={(event) => {setDescription(event.target.value)}}/>
                         </div>
                     
-                        <button className='btn btn-success' type="submit">Save Order</button>
+                        <button className='btn btn-info text-white' type="submit">Save Order</button>
                         {errorMessage &&<div className='alert alert-danger'>
                             {errorMessage}
                         </div>}
