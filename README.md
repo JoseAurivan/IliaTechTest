@@ -57,6 +57,10 @@ To run on production mode
   npm run build
   npm run start
 ```
+or
+```bash
+  npm run deploy
+```
 
 
 ## Running tests
