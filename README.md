@@ -16,6 +16,7 @@ This project fetches a public API and uses a Domain with:
 
 ## Domain
 The domain is managed using Redux and when the user clicks on the "Clear all customers and Orders" button all the data that is stored in Redux is sent to a Postgres Database using an API made from scratch with .NET.
+You can see the redux and its reducers unde /src/store
 
 
 ## API FETCH
@@ -32,6 +33,7 @@ There you can acess then using API requests done with Axios by clicking on the S
 - Unit Tests with JEST
 - .NET Backend Tested With xUnit
 - Typescript
+- ESlint
 
 
 ## Running
